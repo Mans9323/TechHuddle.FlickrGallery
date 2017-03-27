@@ -1,0 +1,23 @@
+<h1>Flickr Photo Stream</h1>
+
+<p *ngIf="!photos"><em>Loading...</em></p>
+
+<div id="photos-list" *ngIf="photos">
+    <div *ngFor="let photo of photos" class="photo-view">
+        <div class="photo-image">
+            <img alt="photo.title" src="{{photo.media.m}}">
+        </div>
+        <span>
+            <a target="_blank" href="{{photo.media.m}}">{{photo.title ? photo.title.length>30 ? photo.title.substr(0,30) + '...' : photo.title : 'No Title'}}</a>
+            <br />
+            by <a target="_blank" href="{{getAuthorPageUrl(photo)}}">{{photo.author}}</a>
+        </span>
+        <p class="photo-descirption">Description:{{photo.description.substr(0,60) + '...'}}</p>
+        <p class="photo-tags">
+            Tags:
+            <span class="photo-tag" *ngFor="let tag of getTags(photo.tags)">
+                {{tag}}
+            </span>
+        </p>
+    </div>
+</div>

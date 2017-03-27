@@ -4,25 +4,25 @@ import { UniversalModule } from 'angular2-universal';
 import { AppComponent } from './components/app/app.component'
 import { HomeComponent } from './components/home/home.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component'
-import { PhotoStreamListComponent } from './components/photo-stream/photo-stream-list.component';
-import { PhotoStreamService } from './components/photo-stream/photo-stream.service'
+import { PhotoListComponent } from './components/photos/photo-list.component';
+import { PhotoService } from './components/photos/photo.service'
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
         AppComponent,
         HomeComponent,
-        PhotoStreamListComponent,
+        PhotoListComponent,
         NavMenuComponent
     ],
     providers: [
-        PhotoStreamService
+        PhotoService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'photoStream', component: PhotoStreamListComponent },
+            { path: 'photoStream', component: PhotoListComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

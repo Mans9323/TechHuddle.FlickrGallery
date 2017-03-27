@@ -5,7 +5,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class PhotoStreamService {
+export class PhotoService {
     private imageServiceURL = 'https://api.flickr.com/services/feeds/photos_public.gne';  // URL to web API
 
     constructor(private jsonp: Jsonp) { }
