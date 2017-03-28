@@ -4,9 +4,19 @@
     <button type="button" (click)="searchByTag(tags)">Tag Search</button>
     <button type="button" (click)="clearSearch()">Clear</button>
 </div>
+<div class="infinite-scroll">
+    <p>
+        Activate Infinite Scroll
+        <input type="checkbox" [(ngModel)]="activateInfinityScroll" />
+    </p>
+</div>
 <p *ngIf="!photos"><em>Loading...</em></p>
-
-<div id="photos-list" *ngIf="photos">
+<p *ngIf="photos && photos.length==0"><em>No Results Found.</em></p>
+<div id="photos-list" *ngIf="photos" class="search-results"
+     infinite-scroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="onScroll()">
     <div *ngFor="let photo of photos" class="photo-view">
         <div class="photo-image">
             <img alt="photo.title" src="{{photo.media.m}}">

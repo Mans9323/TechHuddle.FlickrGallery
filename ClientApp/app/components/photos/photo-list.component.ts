@@ -8,19 +8,29 @@ import { Observable } from 'rxjs/Observable';
     templateUrl: './photo-list.component.html',
     styleUrls: ['./photo-list.component.css']
 })
-export class PhotoListComponent implements OnInit{
+export class PhotoListComponent implements OnInit {
     photos: any[];
     errorMessage: string;
     private flickrBaseUrl = 'https://www.flickr.com/photos/';
     private tags: string;
-    constructor(private photoService: PhotoService) {}
+    private activateInfinityScroll: boolean = false;
+    constructor(private photoService: PhotoService) { }
 
-    ngOnInit() { this.getPhotos(null); }
+    ngOnInit() { this.getPhotos(); }
 
-    getPhotos(tags) {
+    getPhotos(tags=null,addMoreItems=false) {
         this.photoService.getPhotos(tags)
             .subscribe(
-            photos => this.photos = photos.items,
+            photos => {
+                if (addMoreItems) {
+                    for (var i = 0; i < photos.items.length; i++) {
+                        this.photos.push(photos.items[i])
+                    }
+                }
+                else {
+                    this.photos = photos.items;
+                }
+            },
             error => this.errorMessage = <any>error);
     }
 
@@ -28,15 +38,25 @@ export class PhotoListComponent implements OnInit{
         return this.flickrBaseUrl + photo.author_id;
     }
     private getTags(tags) {
-        tags = tags.trim().split(' ').slice(0, 25);
-        return tags.length > 0 && tags[0] ? tags : ["NONE"];
+        if (tags) {
+            tags = tags.trim().split(' ').slice(0, 25);
+            return tags.length > 0 && tags[0] ? tags : ["NONE"];
+        }
+        return ["None"];
     }
     private searchByTag(tag) {
+        this.tags = tag;
         this.getPhotos(tag);
     }
     private clearSearch() {
         this.tags = "";
+        this.activateInfinityScroll = false;
         this.getPhotos(null);
+    }
+    private onScroll() {
+        if (this.activateInfinityScroll) {
+            this.getPhotos(this.tags, true);
+        }
     }
 }
 
