@@ -23,7 +23,15 @@ div#photos-list div.photo-view img {
     height: 250px;
     margin-bottom: 20px;
 }
-
+p.photo-descirption {
+    text-align:left;
+}
+p.photo-tags {
+    max-height: 80px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+}
 span.photo-tag {
     background-color: gainsboro;
     border-radius: 2px 10px;

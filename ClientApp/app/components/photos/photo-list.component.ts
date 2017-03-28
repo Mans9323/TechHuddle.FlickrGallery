@@ -28,7 +28,7 @@ export class PhotoListComponent implements OnInit{
         return this.flickrBaseUrl + photo.author_id;
     }
     private getTags(tags) {
-        tags = tags.trim().split(' ').slice(0, 10);
+        tags = tags.trim().split(' ').slice(0, 25);
         return tags.length > 0 && tags[0] ? tags : ["NONE"];
     }
     private searchByTag(tag) {
