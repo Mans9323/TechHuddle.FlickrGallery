@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoService } from './photo.service'
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -11,13 +12,13 @@ export class PhotoListComponent implements OnInit{
     photos: any[];
     errorMessage: string;
     private flickrBaseUrl = 'https://www.flickr.com/photos/';
-
+    private tags: string;
     constructor(private photoService: PhotoService) {}
 
-    ngOnInit() { this.getPhotos(); }
+    ngOnInit() { this.getPhotos(null); }
 
-    getPhotos() {
-        this.photoService.getPhotos()
+    getPhotos(tags) {
+        this.photoService.getPhotos(tags)
             .subscribe(
             photos => this.photos = photos.items,
             error => this.errorMessage = <any>error);
@@ -29,6 +30,13 @@ export class PhotoListComponent implements OnInit{
     private getTags(tags) {
         tags = tags.trim().split(' ').slice(0, 10);
         return tags.length > 0 && tags[0] ? tags : ["NONE"];
+    }
+    private searchByTag(tag) {
+        this.getPhotos(tag);
+    }
+    private clearSearch() {
+        this.tags = "";
+        this.getPhotos(null);
     }
 }
 

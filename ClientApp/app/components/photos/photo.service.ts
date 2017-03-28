@@ -10,11 +10,14 @@ export class PhotoService {
 
     constructor(private jsonp: Jsonp) { }
 
-    getPhotos(): Observable<any> {
+    getPhotos(tags = undefined): Observable<any> {
         let params = new URLSearchParams();
         params.set('jsoncallback', 'JSONP_CALLBACK');
         params.set('tagmode', 'any');
         params.set('format', 'json');
+        if (tags) {
+            params.set('tags', tags);
+        }
         return this.jsonp
             .get(this.imageServiceURL, { search: params })
             .map(this.extractData)

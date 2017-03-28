@@ -1,5 +1,9 @@
 <h1>Flickr Photo Stream</h1>
-
+<div class="search-input">
+    <input type="text" name="tags" [(ngModel)]="tags" />
+    <button type="button" (click)="searchByTag(tags)">Search</button>
+    <button type="button" (click)="clearSearch()">Clear</button>
+</div>
 <p *ngIf="!photos"><em>Loading...</em></p>
 
 <div id="photos-list" *ngIf="photos">
@@ -16,7 +20,7 @@
         <p class="photo-tags">
             Tags:
             <span class="photo-tag" *ngFor="let tag of getTags(photo.tags)">
-                {{tag}}
+                <button type="button" (click)="searchByTag(tag)">{{tag}}</button>
             </span>
         </p>
     </div>
