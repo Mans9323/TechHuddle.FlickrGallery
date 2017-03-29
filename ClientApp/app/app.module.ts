@@ -1,30 +1,35 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { UniversalModule } from 'angular2-universal';
-import { AppComponent } from './components/app/app.component'
-import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
+import { AppComponent } from './components/app/app.component'
+import { HomeComponent } from './components/home/home.component';
+import { NavMenuComponent } from './components/navmenu/navmenu.component'
+import { PhotoListComponent } from './components/photos/photo-list.component';
+import { PhotoService } from './components/photos/photo.service'
 @NgModule({
-    bootstrap: [ AppComponent ],
+    bootstrap: [AppComponent],
     declarations: [
         AppComponent,
+        HomeComponent,
+        PhotoListComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
-        HomeComponent
+    ],
+    providers: [
+        PhotoService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
+        FormsModule,
+        InfiniteScrollModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'photoStream', component: PhotoListComponent },
             { path: '**', redirectTo: 'home' }
-        ])
+        ]),
     ]
 })
 export class AppModule {

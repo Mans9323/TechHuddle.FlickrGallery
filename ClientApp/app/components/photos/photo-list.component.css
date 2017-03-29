@@ -1,0 +1,64 @@
+h1 {
+    color: red !important;
+}
+
+div#photos-list div.photo-view {
+    width: 350px;
+    height: 500px;
+    display: inline-block;
+    border: 1px solid gray;
+    vertical-align: top;
+    margin: 20px 20px 10px 0px;
+    padding: 20px;
+    text-align: justify;
+    word-wrap: break-word;
+    border-radius: 10px;
+}
+
+div.infinite-scroll {
+    margin-top: 10px;
+}
+
+    div.infinite-scroll input {
+        margin-left: 10px;
+        vertical-align: top;
+    }
+
+div#photos-list div.photo-image {
+    text-align: center;
+}
+
+div#photos-list div.photo-view img {
+    max-width: 280px;
+    height: 250px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+p.photo-descirption {
+    text-align: left;
+}
+
+p.photo-tags {
+    max-height: 80px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+}
+
+span.photo-tag {
+    background-color: gainsboro;
+    border-radius: 2px 10px;
+    padding: 3px;
+    margin-right: 10px;
+}
+
+    span.photo-tag button {
+        border: none;
+    }
+
+div.search-input button {
+    border-radius: 5px;
+    background-color: white;
+    border: gray solid 0.5px;
+}
