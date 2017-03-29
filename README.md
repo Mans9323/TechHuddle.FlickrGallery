@@ -1,31 +1,91 @@
-Synopsis
+# WARNING
 
-At the top of the file there should be a short introduction and/ or overview that explains what the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+This project is no longer maintained. For Angular 2 starter take a look at the [angular2-seed](https://github.com/mgechev/angular2-seed), that this project is based on.
 
-Code Example
+# Introduction
 
-Show what the library does as concisely as possible, developers should be able to figure out how your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+Sample application based upon [mgechev](https://github.com/mgechev)/ [angular2-seed](https://github.com/mgechev/angular2-seed).
 
-Motivation
+[![Join the chat at https://gitter.im/mgechev/angular2-seed](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mgechev/angular2-seed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Dependency Status](https://david-dm.org/mgechev/angular2-seed.svg)](https://david-dm.org/mgechev/angular2-seed)
+[![devDependency Status](https://david-dm.org/mgechev/angular2-seed/dev-status.svg)](https://david-dm.org/mgechev/angular2-seed#info=devDependencies)
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain why the project exists.
+**Note:** Angular 2.0 is not production ready yet! This project is perfect for playing around with the latest versions but do not start new projects with it since a lot of new changes are going to be introduced until the framework is officially released.
 
-Installation
+# Features
 
-Provide code examples and explanations of how to get the project.
+* Component styling
+* Custom Directive
+* Router module (implementing child routes*)
+* Http module
+* Form module (using template driven form approach)
 
-API Reference
+# How to start
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+**Note** that this seed project requires node v0.12.x or higher and npm 3.x.x.
 
-Tests
+```open Command Prompt
+cd 'Folder Path'
+dotnet restore
+npm install
+dotnet run
+```
 
-Describe and show how to run the tests with code examples.
+# Directory Structure
 
-Contributors
+```
+.
+├── app
+│   ├── components
+│   │   ├── about
+│   │   │   ├── about.html
+│   │   │   ├── about.ts
+│   │   │   └── about_spec.ts
+│   │   └── home
+│   │       ├── home.css
+│   │       ├── home.html
+│   │       ├── home.ts
+│   │       └── home_spec.ts
+│   ├── services
+│   │   ├── name_list.ts
+│   │   └── name_list_spec.ts
+│   ├── typings
+│   ├── app.css
+│   ├── app.html
+│   ├── app.ts
+│   ├── index.html
+│   └── init.ts
+├── dist
+│   ├── dev
+│   └── prod
+├── tools
+│   ├── tasks
+│   ├── utils.js
+│   └── workflow.config.js
+├── tsd_typings
+├── gulpfile.js
+├── karma.conf.js
+├── package.json
+├── test-main.js
+├── tsconfig.json
+└── tsd.json
+```
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+# Running test
 
-License
+```bash
+# In a single bash window
+npm run test
 
-A short snippet describing the license (MIT)
+# Debug - In two bash windows
+npm run karma      # 1st window
+npm run test.dev   # 2nd window
+```
+
+# Change Log
+
+You can follow the [Angular 2 change log here](https://github.com/puhpat/TechHuddle.FlickrGallery/commits/master).
+
+# License
+
+MIT
