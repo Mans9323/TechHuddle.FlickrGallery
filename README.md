@@ -1,28 +1,37 @@
-# WARNING
-
-This project is no longer maintained. For Angular 2 starter take a look at the [angular2-seed](https://github.com/mgechev/angular2-seed), that this project is based on.
-
 # Introduction
 
-Sample application based upon [mgechev](https://github.com/mgechev)/ [angular2-seed](https://github.com/mgechev/angular2-seed).
+## Web Development Flickr Task
 
-[![Join the chat at https://gitter.im/mgechev/angular2-seed](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mgechev/angular2-seed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependency Status](https://david-dm.org/mgechev/angular2-seed.svg)](https://david-dm.org/mgechev/angular2-seed)
-[![devDependency Status](https://david-dm.org/mgechev/angular2-seed/dev-status.svg)](https://david-dm.org/mgechev/angular2-seed#info=devDependencies)
+##### Your task is to consume the public [Flickr API](https://api.flickr.com/services/feeds/photos_public.gne?format=json) and display the results according to this basic wireframe:
 
-**Note:** Angular 2.0 is not production ready yet! This project is perfect for playing around with the latest versions but do not start new projects with it since a lot of new changes are going to be introduced until the framework is officially released.
+> ![mockup](vyDVR1e.png)
 
-# Features
+We would expect this task to take a few hours, however there is no strict time limit and you won't be judged on how long it took you to complete. Please find a few pointers below:
 
-* Component styling
-* Custom Directive
+* The website you create should function as a [single page app](http://en.wikipedia.org/wiki/Single-page_application).
+* You must use HTML and CSS (using pre-compilers such as Sass or LESS is fine).
+* Your app should support the major browsers (Chrome, Firefox, Safari, IE10+).
+* We would encourage that you use a framework to speed up development time.
+* If you do decide to use other Flickr API feeds to show us what you can do, be aware that some endpoints do require an API key. You can apply for your own [here](https://www.flickr.com/services/api/keys).
+
+Although the main outcomes of the task are listed above, if you feel like you want to go that extra mile and show us what you're capable of, here is a list of potential enhancements that we have come up with:
+
+* Think about how you might improve the speed of the page in terms of the images/content loading.
+* Allow the page to have an infinite scroll (loading in more images as you scroll).
+* A search functionality based on tags, or possibly the title of the photo.
+* Alternatively if you can think of any other features that you feel would further enhance your app, then we'd love to see what you can come up with!
+
+# Modules
+
+* UniversalModule
+* FormsModule
 * Router module (implementing child routes*)
-* Http module
-* Form module (using template driven form approach)
+* FormsModule
+* InfiniteScrollModule
 
 # How to start
 
-**Note** that this seed project requires node v0.12.x or higher and npm 3.x.x.
+**Note** that this seed project requires node v7.0.0 or higher and npm 4.x.x
 
 ```open Command Prompt
 cd 'Folder Path'
@@ -35,40 +44,37 @@ dotnet run
 
 ```
 .
-├── app
-│   ├── components
-│   │   ├── about
-│   │   │   ├── about.html
-│   │   │   ├── about.ts
-│   │   │   └── about_spec.ts
-│   │   └── home
-│   │       ├── home.css
-│   │       ├── home.html
-│   │       ├── home.ts
-│   │       └── home_spec.ts
-│   ├── services
-│   │   ├── name_list.ts
-│   │   └── name_list_spec.ts
-│   ├── typings
-│   ├── app.css
-│   ├── app.html
-│   ├── app.ts
-│   ├── index.html
-│   └── init.ts
-├── dist
-│   ├── dev
-│   └── prod
-├── tools
-│   ├── tasks
-│   ├── utils.js
-│   └── workflow.config.js
-├── tsd_typings
-├── gulpfile.js
-├── karma.conf.js
-├── package.json
-├── test-main.js
-├── tsconfig.json
-└── tsd.json
+│   boot-client.ts
+│   boot-server.ts
+│
+├───app
+│   │   app.module.ts
+│   │
+│   └───components
+│       ├───app
+│       │       app.component.css
+│       │       app.component.html
+│       │       app.component.ts
+│       │
+│       ├───home
+│       │       home.component.css
+│       │       home.component.html
+│       │       home.component.ts
+│       │
+│       ├───navmenu
+│       │       navmenu.component.css
+│       │       navmenu.component.html
+│       │       navmenu.component.ts
+│       │
+│       └───photos
+│               photo-list.component.css
+│               photo-list.component.html
+│               photo-list.component.ts
+│               photo.service.ts
+│
+└───test
+        boot-tests.ts
+        karma.conf.js
 ```
 
 # Running test
