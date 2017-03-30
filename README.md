@@ -4,7 +4,7 @@
 
 ##### Your task is to consume the public [Flickr API](https://api.flickr.com/services/feeds/photos_public.gne?format=json) and display the results according to this basic wireframe:
 
-> ![mockup](vyDVR1e.png)
+> ![mockup](https://github.com/holidayextras/culture/blob/master/recruitment/vyDVR1e.png)
 
 We would expect this task to take a few hours, however there is no strict time limit and you won't be judged on how long it took you to complete. Please find a few pointers below:
 
