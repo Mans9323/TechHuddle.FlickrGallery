@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace FlickrGallery
+namespace TechHuddle_FlickrPhotoStream
 {
     public class Startup
     {
