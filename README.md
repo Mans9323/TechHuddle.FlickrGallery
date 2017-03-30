@@ -31,6 +31,8 @@ Although the main outcomes of the task are listed above, if you feel like you wa
 
 # How to start
 
+Live URL: http://techhuddleflickrphotostream.azurewebsites.net/home
+
 **Note** that this seed project requires node v7.0.0 or higher and npm 4.x.x
 
 ```open Command Prompt
@@ -76,18 +78,6 @@ dotnet run
         boot-tests.ts
         karma.conf.js
 ```
-
-# Running test
-
-```bash
-# In a single bash window
-npm run test
-
-# Debug - In two bash windows
-npm run karma      # 1st window
-npm run test.dev   # 2nd window
-```
-
 # Change Log
 
 You can follow the [Angular 2 change log here](https://github.com/puhpat/TechHuddle.FlickrGallery/commits/master).
